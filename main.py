@@ -1,5 +1,5 @@
 def main():
-    i = 1 + 1
+    i = 1 + 3
     pass
 
 main()
