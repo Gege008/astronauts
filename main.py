@@ -1,4 +1,4 @@
-def beolvaso():
+def reader():
     months = []
     with open('astronauts.csv', 'r', encoding='utf-8') as forrasfajl:
         forrasfajl.readline()
@@ -12,7 +12,7 @@ def beolvaso():
     return months
 
 
-def szamolo(month):
+def counter(month):
     result = {}
     for m in month:
         if m in result:
@@ -22,21 +22,21 @@ def szamolo(month):
     return result
 
 
-def sorrend(result):
+def order(result):
     return list(sorted(result.items(), key=lambda item: item[1]))
 
 
-def kiiro(ordered_result, num):
+def writer(ordered_result, num):
     for i in range(3):
         item = ordered_result[11 - i]
         print(f"Hónap: {item[0]} - százalékos arány: {round(100 * item[1] / num, 1)}")
 
 
 def main():
-    month = beolvaso()
-    result = szamolo(month)
-    ordered_result = sorrend(result)
-    kiiro(ordered_result, len(month))
+    month = reader()
+    result = counter(month)
+    ordered_result = order(result)
+    writer(ordered_result, len(month))
 
 
 main()
